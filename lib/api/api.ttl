@@ -1,0 +1,61 @@
+@base <http://ns.bergnet.org/dark-horse/>.
+
+@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+@prefix code: <https://code.described.at/>.
+@prefix hydrabox: <http://hydra-box.org/schema/>.
+@prefix schema: <http://schema.org/> .
+
+hydra:Container a hydra:Class;
+  hydra:supportedOperation
+    <container#get>.
+
+<container#get> a hydra:SupportedOperation;
+  hydra:method "GET";
+  hydra:returns hydra:Container;
+  code:implementedBy [ a code:EcmaScriptModule;
+    code:link <file:./lib/api/container.js#get>
+  ].
+
+<Device> a hydra:Class;
+  hydra:supportedOperation
+    <device#get>,
+    <device#put>;
+  hydra:supportedProperty [ a hydra:SupportedProperty;
+    hydra:property <state>;
+    hydra:supportedOperation
+      <state#get>,
+      <state#put>
+  ].
+
+<device#get> a hydra:SupportedOperation;
+  hydra:method "GET";
+  hydra:returns <Device>;
+  code:implementedBy [ a code:EcmaScriptModule;
+    code:link <file:./lib/api/device.js#get>
+  ].
+
+<device#put> a hydra:SupportedOperation;
+  hydra:method "PUT";
+  hydra:expects <State>;
+  code:implementedBy [ a code:EcmaScriptModule;
+    code:link <file:./lib/api/device.js#put>
+  ].
+
+<State> a hydra:Class;
+  hydra:supportedOperation
+    <state#get>,
+    <state#put>.
+
+<state#get> a hydra:SupportedOperation;
+  hydra:method "GET";
+  hydra:returns <State>;
+  code:implementedBy [ a code:EcmaScriptModule;
+    code:link <file:./lib/api/state.js#get>
+  ].
+
+<state#put> a hydra:SupportedOperation;
+  hydra:method "PUT";
+  hydra:expects <State>;
+  code:implementedBy [ a code:EcmaScriptModule;
+    code:link <file:./lib/api/state.js#put>
+  ].
