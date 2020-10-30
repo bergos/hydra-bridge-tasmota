@@ -1,5 +1,5 @@
 {
-  "name": "hydra-bridge-tasmota",
+  "name": "@dark-horse/hydra-bridge-tasmota",
   "description": "Hydra bridge for Tasmota devices",
   "version": "0.0.0",
   "type": "module",
