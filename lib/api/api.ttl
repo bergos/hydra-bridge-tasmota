@@ -21,10 +21,7 @@ hydra:Container a hydra:Class;
     <device#get>,
     <device#put>;
   hydra:supportedProperty [ a hydra:SupportedProperty;
-    hydra:property <state>;
-    hydra:supportedOperation
-      <state#get>,
-      <state#put>
+    hydra:property <state>
   ].
 
 <device#get> a hydra:SupportedOperation;
@@ -42,6 +39,11 @@ hydra:Container a hydra:Class;
   ].
 
 <State> a hydra:Class;
+  hydra:supportedOperation
+    <state#get>,
+    <state#put>.
+
+<state>
   hydra:supportedOperation
     <state#get>,
     <state#put>.
